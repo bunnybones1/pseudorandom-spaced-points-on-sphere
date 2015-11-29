@@ -1,0 +1,24 @@
+{
+  "name": "pseudorandom-spaced-points-on-sphere",
+  "version": "1.0.0",
+  "description": "A function that picks well-spaced pseudorandom points on a unit sphere.",
+  "main": "index.js",
+  "scripts": {
+    "test": "open index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bunnybones1/pseudorandom-spaced-points-on-sphere.git"
+  },
+  "keywords": [
+    "3d",
+    "sphere",
+    "points"
+  ],
+  "author": "Tomasz Dysinski <oz@bunnybones.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bunnybones1/pseudorandom-spaced-points-on-sphere/issues"
+  },
+  "homepage": "https://github.com/bunnybones1/pseudorandom-spaced-points-on-sphere#readme"
+}

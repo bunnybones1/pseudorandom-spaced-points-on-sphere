@@ -1,0 +1,65 @@
+
+<html>
+<body>
+<canvas id="canvas" style="width:800; height:800">
+</canvas>
+<script src="index.js"></script>
+
+<script>
+
+    var canvas = document.getElementById("canvas");
+    var ctx = canvas.getContext("2d");
+    var alpha=0, beta=0;
+
+    var pts = pickSpherePoints(400,98);
+
+
+    function map2d(p)
+    {
+        var ca = Math.cos(alpha), sa = Math.sin(alpha);
+        var cb = Math.cos(beta), sb = Math.sin(beta);
+        var xx = (p.x*ca+p.y*sa)*cb + p.z*sb;
+        var yy = p.y*ca-p.x*sa;
+        var zz = p.z*cb - (p.x*ca+p.y*sa)*sb;
+        return {xs:400 + 800*xx/(3+zz),
+            ys:400 + 800*yy/(3+zz),
+            zs:zz};
+    }
+
+
+    function repaint()
+    {
+        var w = canvas.offsetWidth;
+        var h = canvas.offsetHeight;
+        canvas.width = w;
+        canvas.height = h;
+        var sf = w/4;
+//        ctx.fillStyle = "#000000";
+
+        for (var i=0; i<pts.length; i++)
+        {
+            var p = map2d(pts[i]);
+            var r = 60 / (10 + p.zs);
+            ctx.fillStyle = '#'+(Math.random()*0xFFFFFF<<0).toString(16);
+            ctx.beginPath();
+            ctx.arc(p.xs, p.ys, r, 0, 2*Math.PI, true);
+            ctx.fill();
+        }
+    }
+
+    repaint();
+
+    var last = (new Date()).getTime();
+
+    setInterval(function()
+    {
+        var now = (new Date()).getTime();
+        alpha += (now - last) / 1000;
+        beta += (now - last) / 3100;
+        last = now;
+        repaint();
+    }, 20);
+
+</script>
+</body>
+</html>
