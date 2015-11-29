@@ -5,6 +5,8 @@
  */
 
 function pickSpherePoints(numPoints, seed){
+    numPoints = numPoints || 100;
+    seed = seed || 0;
 
     var pts = [];
 
