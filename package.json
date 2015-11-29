@@ -1,6 +1,6 @@
 {
   "name": "pseudorandom-spaced-points-on-sphere",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A function that picks well-spaced pseudorandom points on a unit sphere.",
   "main": "index.js",
   "scripts": {
