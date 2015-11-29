@@ -64,3 +64,4 @@ function pickSpherePoints(numPoints, seed){
 
 }
 
+module.exports = pickSpherePoints;
